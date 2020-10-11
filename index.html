@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Tic-Tac-Toe</title>
+
+    <script src="jquery-3.5.0.js"></script>
+    <script src="tic.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src='https://kit.fontawesome.com/a076d05399.js'></script>-->
+
+    <link rel="stylesheet" type="text/css" href="tac.css">
+    <link rel="icon" href="fav.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <header>
+        TIC - TAC - TOE        
+    </header>
+
+    <div id="butContainer">
+        <div id="row1">
+            <button id="1" class="but" onclick="buttonClick(this)"> </button>
+            <button id="2" class="but" onclick="buttonClick(this)"> </button>
+            <button id="3" class="but" onclick="buttonClick(this)"> </button>
+        </div>
+        <div id="row2">
+            <button id="4" class="but" onclick="buttonClick(this)"> </button>
+            <button id="5" class="but" onclick="buttonClick(this)"> </button>
+            <button id="6" class="but" onclick="buttonClick(this)"> </button>
+        </div>
+        <div id="row3">
+            <button id="7" class="but" onclick="buttonClick(this)"> </button>
+            <button id="8" class="but" onclick="buttonClick(this)"> </button>
+            <button id="9" class="but" onclick="buttonClick(this)"> </button>
+        </div>
+    </div>
+
+    <div class="resultModal">
+        <div class="modal-content">
+            <!-- <span class="close">&times;</span> -->
+            <p id="resultMsg"></p>
+            <button id="continue" class="resultBtns">Continue</button>
+            <button id="restart" class="resultBtns">Restart</button>
+            <button id="quit" class="resultBtns">Quit</button>
+        </div>
+    </div>
+
+    <div class="finalResultModal">
+        <div class="finalResult-modal-content">
+            <!-- <span class="finalClose">&times;</span> -->
+            <p id="finalResultMsg"></p>            
+        </div>
+    </div>
+
+    <footer>
+        <div class="score">
+            <div class="score-title">
+                SCORE
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="playerScores">
+                <div class="playerXScore"></div>
+                <div class="playerOScore"></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

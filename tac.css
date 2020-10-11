@@ -1,0 +1,152 @@
+﻿header {
+    /*    text-align: ;*/
+    font-family: 'Comic Sans MS';
+    font-size: 30px;
+    color: white;
+/*    background-color: whitesmoke;*/
+    padding: 10px 32px;
+    margin: 4px 2px;
+    text-align: center
+}
+
+.playerScores {
+    display: inline-block
+}
+
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa:hover {
+        color: dimgrey;
+}
+
+footer {
+    /*    background-color: whitesmoke;*/
+    color: white;
+    font-size: 20px;
+    padding: 10px 32px;
+    margin: 4px 2px;
+    font-family: 'Comic Sans MS';
+}
+
+body
+{
+    /* background-image: url("rain3.jpg"); */
+    /* height: auto;
+    width: auto; */
+    /* align-content: stretch; */
+    /* background-position:center; */
+   background-color: maroon;
+}
+
+div {
+    text-align: center
+}
+
+.but {
+    color: black;
+    text-align: center;
+    font-size: 50px;
+    padding: 10px 32px;
+    margin: 4px 2px;
+    height: 100px;
+    width: 100px;
+    border: 100px ;
+    background-color: white;
+    font-family: 'Comic Sans MS';
+    vertical-align: top;
+}
+
+.winnerRow{
+    color:red; 
+}
+
+#resultMsg {
+    color: white;
+    font-family: 'Comic Sans MS';
+    font-size: 20px;
+}
+
+.resultBtns {
+    font-family: 'Comic Sans MS';
+    vertical-align: top;
+    background-color: white;
+    padding: 10px 32px;
+    margin: 4px 2px;
+    border-color:white; 
+    color:red;
+}
+
+.resultModal  {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 100px;
+    top: 100px;
+    width: 100%; /*Full width */
+    height: 50px; /* Full height */
+    color: red; /* Black w/ opacity */
+    vertical-align:central;  
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: red;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 3px solid white;
+    width: 80%; /* Could be more or less, depending on screen size */
+    color: white;
+}
+
+.finalResultModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 100px;
+    top: 100px;
+    width: 100%; /*Full width */
+    height: 50px; /* Full height */
+    color: deepskyblue; /* Black w/ opacity */
+    vertical-align: central;
+}
+
+
+
+.finalResult-modal-content {
+    background-color: purple;
+    /*margin: 15% auto;*/ /* 15% from the top and centered */
+    /*padding: 20px;*/
+    border: 3px solid white;
+    width: 80%; /* Could be more or less, depending on screen size */
+    color: white;
+}
+/* The Close Button */
+/*.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}*/
+
+/* .finalClose {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+} */
+
+/* .close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+} */
+
+
+
+
+
