@@ -7,6 +7,9 @@ var multiPlayer = false;
 var nextMove;
 var turn;
 
+function getCount() {
+    return inputs.filter(function (e) { return e !== undefined }).length;
+}
 
 function getNextMove() {
     return Math.floor(Math.random() * (9 - 1 + 1)) + 1;
@@ -27,23 +30,54 @@ function getInput(currElem) {
 
             turn = turn === 'X' ? 'O' : 'X';
 
+            count = getCount();
+
             nextMove = getNextMove();
-            while (typeof inputs[nextMove] !== 'undefined') {
+            while (typeof inputs[nextMove] !== 'undefined' && count != 10) {
                 nextMove = getNextMove();
             }
             // inputs[nextMove] == 'undefined' >> empty element
-            inputs[nextMove] = turn;
-            setTimeout(function () {
-                $("#" + nextMove).text(turn);
-            }, 500);
 
-            //disabling the button
+            if(count != 10){
+                inputs[nextMove] = turn; 
+
+                // $("#" + nextMove).text(turn);
+    
+                setTimeout(function () {
+                    $("#" + nextMove).text(turn);
+                }, 100);
+
+                 //disabling the button
             $("#" + nextMove).attr("disabled", true);
+
+            // $(".but").attr("disabled", false);
+
 
             setTimeout(function () {
                 isGameOver();
 
             }, 600);
+
+            }
+
+            // inputs[nextMove] = turn; 
+
+            // // $("#" + nextMove).text(turn);
+
+            // setTimeout(function () {
+            //     $("#" + nextMove).text(turn);
+            // }, 100);
+
+            //disabling the button
+            // $("#" + nextMove).attr("disabled", true);
+
+            // // $(".but").attr("disabled", false);
+
+
+            // setTimeout(function () {
+            //     isGameOver();
+
+            // }, 600);
 
             //if (isGameOver()) {
             //    $(".playerXScore").text("Player X: " + playerX_Score);
@@ -76,6 +110,12 @@ function getInput(currElem) {
 function buttonClick(elem) {
     var $thisButton = $(elem);
     $thisButton.attr("disabled", true);
+
+    // if(!multiPlayer){
+    //     $(".but").attr("disabled", true);
+    // }
+    
+
     //$thisButton.addClass('occupied');
 
    
@@ -90,7 +130,7 @@ function buttonClick(elem) {
 
     getInput($thisButton);
 
-    count = inputs.filter(function (e) { return e !== undefined }).length;
+    count = getCount();
     // DRAW condition 
     if (count == 10 && !isGameOver()) {
         $("#resultMsg").text("Uh Oh Its a DRAW!!");
@@ -137,7 +177,7 @@ $(document).ready(function () {
         $("#butContainer").load("index.html #butContainer");
 
         $(".playerXScore").text("Player X: " + playerX_Score);
-        $(".playerOScore").text("PLayer O: " + playerO_Score);
+        $(".playerOScore").text("Player O: " + playerO_Score);
         turn = 'O';
 
         inputs = [];
@@ -164,18 +204,21 @@ $(document).ready(function () {
     $('#quit').click(function () {
 
         $(".resultModal").modal('hide');
+        $(".but").attr("disabled", true);
 
         //displaying final result
+        var finResMsg;
         if (playerX_Score > playerO_Score) {
-            $("#finalResultMsg").text("Winner: X\nScore: " + playerX_Score);
+            finResMsg = "Winner: X" + "\nScore: " + playerX_Score;
         }
         if (playerX_Score < playerO_Score) {
-            $("#finalResultMsg").text("Winner: O\nScore: " + playerO_Score);
+            finResMsg = "Winner: O" + "\nScore: " + playerO_Score;
         }
         if (playerX_Score == playerO_Score) {
-            $("#finalResultMsg").text("DRAW!\nScore X: " + playerX_Score + "\nScore O: " + playerO_Score);
+            finResMsg = "DRAW!\nScore X: " + playerX_Score + "\nScore O: " + playerO_Score;
         }
 
+        $("#finalResultMsg").text(finResMsg);
         $(".finalResultModal").modal('show');
 
         //setTimeout(function () {
@@ -210,7 +253,7 @@ $(document).ready(function () {
         playerX_Score = 0;
         playerO_Score = 0;
         $(".playerXScore").text("Player X: " + playerX_Score);
-        $(".playerOScore").text("PLayer O: " + playerO_Score);
+        $(".playerOScore").text("Player O: " + playerO_Score);
         var $thisPlayer = $(this);
         $thisPlayer.toggleClass("fa-users");
         if ($thisPlayer.hasClass('fa-users')) {
@@ -227,7 +270,7 @@ $(document).ready(function () {
     //    $(".playerOScore").text("PLayer O: " + playerO_Score);
     //}
     $(".playerXScore").text("Player X: " + playerX_Score);
-    $(".playerOScore").text("PLayer O: " + playerO_Score);
+    $(".playerOScore").text("Player O: " + playerO_Score);
 
     
 });
@@ -319,6 +362,8 @@ function isGameOver() {
         //$("#playerScores").load("index.html #playerScores");
         //$("#butContainer").load("index.html #butContainer");
 
+        $(".but").attr("disabled", true);
+
 
         //$(".resultModal").modal('show');
         setTimeout(function () {
@@ -408,7 +453,10 @@ function isGameOver() {
         //    $('.winnerRow').style.display = ($('.winnerRow').style.display == 'none' ? '' : 'none');
         //}, 800);
 
-        $(".playerOScore").text("PLayer O: " + playerO_Score);
+        $(".playerOScore").text("Player O: " + playerO_Score);
+
+        $(".but").attr("disabled", true);
+
 
         $("#resultMsg").text("Winner: O");
         //$(".resultModal").modal('show');
