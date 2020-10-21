@@ -58,6 +58,9 @@ function getInput(currElem) {
 
             }, 600);
 
+           // $(".but").attr("disabled", false);
+
+
             }
 
             // inputs[nextMove] = turn; 
@@ -209,13 +212,13 @@ $(document).ready(function () {
         //displaying final result
         var finResMsg;
         if (playerX_Score > playerO_Score) {
-            finResMsg = "Winner: X" + "\nScore: " + playerX_Score;
+            finResMsg = "Winner: X !!\n Score: " + playerX_Score;
         }
         if (playerX_Score < playerO_Score) {
-            finResMsg = "Winner: O" + "\nScore: " + playerO_Score;
+            finResMsg = "Winner: O !!\n Score: " + playerO_Score;
         }
         if (playerX_Score == playerO_Score) {
-            finResMsg = "DRAW!\nScore X: " + playerX_Score + "\nScore O: " + playerO_Score;
+            finResMsg = "DRAW!! \n Score X: " + playerX_Score + "\n|| Score O: " + playerO_Score;
         }
 
         $("#finalResultMsg").text(finResMsg);
@@ -252,6 +255,8 @@ $(document).ready(function () {
         inputs[0] = 'firstElem';
         playerX_Score = 0;
         playerO_Score = 0;
+        $("#butContainer").load("index.html #butContainer");
+
         $(".playerXScore").text("Player X: " + playerX_Score);
         $(".playerOScore").text("Player O: " + playerO_Score);
         var $thisPlayer = $(this);
