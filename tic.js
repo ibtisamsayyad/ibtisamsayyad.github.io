@@ -1,12 +1,12 @@
 var playerX_Score = 0;
 var playerO_Score = 0;
 var inputs ;
-// var inputs = [];
-//inputs[0] = 'firstElem';
 var count;
 var multiPlayer = false;
 var nextMove;
 var turn;
+var isGameOver;
+var isOver = false;
 
 function resetInput(){
     inputs = [];
@@ -29,17 +29,18 @@ function getNextMove() {
 }
 
 function getInput(currElem) {
-    
+    isOver = false;
     var butID = currElem.attr("id");
     turn = currElem[0].outerText;
     inputs[butID] = turn;
 
     if (multiPlayer == true) {
-        isGameOver();
+        GameOver();
     }
     else
     {
-        if (!isGameOver()) {
+        isGameOver = GameOver();
+        if (!isGameOver) {
 
             turn = turn === 'X' ? 'O' : 'X';
 
@@ -60,7 +61,7 @@ function getInput(currElem) {
             //disabling the button
             $("#" + nextMove).attr("disabled", true);
             
-            isGameOver();
+            GameOver();
             }
         }         
     } 
@@ -79,15 +80,17 @@ function buttonClick(elem) {
     count = getCount();
     
     // DRAW condition 
-    if (count == 10 && !isGameOver()) {
+    if (count == 10 && isOver !== true ) {
+
         $("#resultMsg").text("Uh Oh Its a DRAW!!");
         setTimeout(function () {
             $(".resultModal").modal('show');  
-        }, 500);
+        }, 200);
     }
 }
 
 $(document).ready(function () { 
+
     resetInput();
 
     $(".playerXScore").text("Player X: " + playerX_Score);
@@ -168,7 +171,7 @@ $(document).ready(function () {
 });
 
 
-function isGameOver() {
+function GameOver() {
 
     if (inputs[1] == inputs[2] && inputs[2] == inputs[3] && inputs[3] == "X" ||//1
         inputs[1] == inputs[5] && inputs[5] == inputs[9] && inputs[5] == "X" ||//2
@@ -179,6 +182,7 @@ function isGameOver() {
         inputs[4] == inputs[5] && inputs[5] == inputs[6] && inputs[5] == "X" ||//7
         inputs[7] == inputs[8] && inputs[8] == inputs[9] && inputs[8] == "X") {//8
 
+        isOver = true;
         playerX_Score++;
 
         switch (true) {
@@ -207,7 +211,7 @@ function isGameOver() {
             case inputs[7] == inputs[8] && inputs[8] == inputs[9]: $("#7,#8,#9").addClass('winnerRow');
                 break;
 
-        }
+        }        
 
         $(".playerXScore").text("Player X: " + playerX_Score);
 
@@ -217,7 +221,7 @@ function isGameOver() {
         
         setTimeout(function () {
             $(".resultModal").modal('show');
-        }, 500);
+        }, 200);
 
         return true;
     }
@@ -232,7 +236,8 @@ function isGameOver() {
         inputs[4] == inputs[5] && inputs[5] == inputs[6] && inputs[5] == "O" ||
         inputs[7] == inputs[8] && inputs[8] == inputs[9] && inputs[8] == "O") {
 
-        playerO_Score++;
+           isOver = true;
+            playerO_Score++;
 
         switch (true) {
 
