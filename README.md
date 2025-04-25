@@ -1,5 +1,7 @@
 **🕹️ Tic-Tac-Toe Web App**
+
 A simple and interactive Tic-Tac-Toe game built with vanilla JavaScript, offering both Single Player (vs System) and Multiplayer modes. The game runs in the browser as a fully responsive single-page application (SPA), with features like restarting, quitting, and score tracking.
+
 
 **🎯 Features**:
 
@@ -15,6 +17,7 @@ A simple and interactive Tic-Tac-Toe game built with vanilla JavaScript, offerin
 
 ⚡ Responsive UI – Works smoothly across devices and screen sizes.
 
+
 **🛠️ Tech Stack:**
 
 HTML
@@ -27,5 +30,6 @@ JavaScript (Vanilla JS)
 **🙌 Acknowledgements**
 
 Built for learning, fun, and practice. Feedback and contributions are welcome!
+
 
 **🔗 Live Demo: [Click here to play the game](https://ibtisamsayyad.github.io/)**
